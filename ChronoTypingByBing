@@ -78,3 +78,102 @@ Source: Conversation with Bing, 26/10/2023
 (5) Build Modern Laravel Apps Using Inertia.js - Laracasts. https://laracasts.com/series/build-modern-laravel-apps-using-inertia-js.
 (6) Création d'applications Web à partir de zéro avec Laravel. https://code.tutsplus.com/fr/building-web-applications-from-scratch-with-laravel--net-25517t.
 (7) How to add _token csrf globally on Laravel Inertia?. https://stackoverflow.com/questions/74710736/how-to-add-token-csrf-globally-on-laravel-inertia.
+
+
+
+
+
+
+
+
+Je comprends que vous ne voulez pas installer Vue Timer, mais c'est une bibliothèque très pratique et facile à utiliser pour créer des chronomètres en Vue.js. Si vous voulez vraiment créer un chrono en JavaScript pur, vous pouvez vous inspirer du code suivant⁶, qui utilise la fonction setInterval pour appeler une fonction chrono toutes les 10 millisecondes. Cette fonction met à jour les variables et l'affichage du temps écoulé. Vous pouvez aussi consulter ce tutoriel⁴ qui explique comment faire un timer en JavaScript étape par étape.
+
+```javascript
+// Sélectionner l'élément HTML qui affiche le chrono
+var timerElement = document.getElementById("timer");
+
+// Déclarer les variables pour le temps
+var startTime = 0; // Le temps de départ du chrono
+var start = 0; // Le temps actuel du chrono
+var end = 0; // Le temps de fin du chrono
+var diff = 0; // La différence entre le temps actuel et le temps de départ
+var timerID = 0; // L'identifiant du setInterval
+
+// Définir la fonction chrono qui met à jour le temps et l'affichage
+function chrono() {
+  end = new Date(); // Obtenir le temps actuel
+  diff = end - start; // Calculer la différence
+  diff = new Date(diff); // Convertir la différence en objet Date
+  var msec = diff.getMilliseconds(); // Obtenir les millisecondes
+  var sec = diff.getSeconds(); // Obtenir les secondes
+  var min = diff.getMinutes(); // Obtenir les minutes
+  var hr = diff.getHours() - 1; // Obtenir les heures (en soustrayant 1 car l'objet Date commence à 1 heure)
+  if (min < 10) {
+    min = "0" + min;
+  } // Ajouter un zéro devant les minutes si inférieures à 10
+  if (sec < 10) {
+    sec = "0" + sec;
+  } // Ajouter un zéro devant les secondes si inférieures à 10
+  if (msec < 10) {
+    msec = "00" + msec;
+  } else if (msec < 100) {
+    msec = "0" + msec;
+  } // Ajouter des zéros devant les millisecondes si inférieures à 10 ou à 100
+  timerElement.innerText =
+    hr + ":" + min + ":" + sec + ":" + msec; // Mettre à jour l'affichage du chrono
+  timerID = setTimeout("chrono()", 10); // Appeler la fonction chrono toutes les 10 millisecondes
+}
+
+// Définir la fonction start qui démarre le chrono
+function start() {
+  if (startTime == 0) {
+    startTime = new Date(); // Obtenir le temps de départ si c'est la première fois que le chrono est lancé
+    start = startTime;
+    document.getElementById("start").disabled = true; // Désactiver le bouton start pour éviter de relancer le chrono
+    document.getElementById("stop").disabled = false; // Activer le bouton stop pour pouvoir arrêter le chrono
+    document.getElementById("reset").disabled = false; // Activer le bouton reset pour pouvoir remettre le chrono à zéro
+    chrono(); // Appeler la fonction chrono
+  } else {
+    start = new Date() - diff; // Sinon, calculer le nouveau temps de départ en tenant compte de la différence entre le temps actuel et le temps de départ précédent
+    start = new Date(start);
+    document.getElementById("start").disabled = true; // Désactiver le bouton start pour éviter de relancer le chrono
+    document.getElementById("stop").disabled = false; // Activer le bouton stop pour pouvoir arrêter le chrono
+    document.getElementById("reset").disabled = false; // Activer le bouton reset pour pouvoir remettre le chrono à zéro
+    chrono(); // Appeler la fonction chrono
+  }
+}
+
+// Définir la fonction stop qui arrête le chrono
+function stop() {
+  clearTimeout(timerID); // Arrêter le setInterval qui appelle la fonction chrono
+  document.getElementById("start").disabled = false; // Activer le bouton start pour pouvoir relancer le chrono
+}
+
+// Définir la fonction reset qui remet le chrono à zéro
+function reset() {
+  startTime = new Date(); // Réinitialiser le temps de départ au temps actuel
+  start = startTime;
+  end = startTime;
+  diff = end - start;
+  diff = new Date(diff);
+  timerElement.innerText =
+    "0:00:00:000"; // Réinitialiser l'affichage du chrono à zéro
+  document.getElementById("start").disabled = false; // Activer le bouton start pour pouvoir relancer le chrono
+  document.getElementById("stop").disabled = true; // Désactiver le bouton stop car le chrono est à l'arrêt
+  document.getElementById("reset").disabled = true; // Désactiver le bouton reset car le chrono est déjà à zéro
+}
+```
+
+J'espère que ce code vous aidera à créer votre application de Typing. Si vous avez besoin d'aide pour d'autres aspects de votre projet, n'hésitez pas à me le demander. 😊
+
+Source: Conversation with Bing, 26/10/2023
+(1) javascript source code: chronometer - proglogic.com. https://proglogic.com/code/javascript/time/chronometer.php.
+(2) Comment faire un timer en JavaScript ? | Comment Coder. https://www.commentcoder.com/timer-javascript/.
+(3) CHRONOMETRE JAVASCRIPT. https://www.youtube.com/watch?v=7HRRSx5SvTI.
+(4) Réaliser un Chronomètre en JAVASCRIPT. https://www.youtube.com/watch?v=hNwGsyjfTL4.
+(5) 1- # tutorial gratuit Créer un chronomètre avec javascript. https://www.youtube.com/watch?v=dmpYygUCwCo.
+(6) Création d'un chronomètre - JavaScript - Cours et Exercices corrigés. http://www.exelib.net/javascript/creation-d-un-chronometre.html.
+(7) undefined. https://github.com/wikode/20220227_chronometre.
+(8) undefined. https://codepen.io/pen/.
+(9) undefined. https://dev.to/gspteck/create-a-stopwatch-in-javascript-2mak.
+(10) undefined. https://faizdev.myspreadshop.fr/.
