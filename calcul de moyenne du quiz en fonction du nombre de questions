@@ -1,0 +1,26 @@
+addAnswers(possible_answer, i, question, u) {
+			this.moyenne(possible_answer, i);
+			this.tab[i] = { quest: question.text, index: u };
+			this.selectedChoices[i] = {
+				'id': this.userAnswer.id,
+				'possible_answer_id': possible_answer.id,
+				'question_id': question.id,
+				'intern_user_id': 0,
+				'extern_user_id': 0,
+				'quiz_id': this.userAnswer.quiz_id,
+				'user_note_id': this.userNote.id,
+			}
+			this.answersStocker.setItem('selectedChoices', JSON.stringify(this.selectedChoices))
+			this.answersStocker.setItem('tab', JSON.stringify(this.tab))
+			this.userAnswer.id = uuid();
+		},
+		moyenne(possible_answer, i) {
+			let tab = [];
+			if (possible_answer.state === 1) {
+				this.notes[i] = 1;
+			} else {
+				this.notes[i] = 0;
+			}
+			this.finalNotes = this.notes.filter(el => el === 1).length;
+			this.answersStocker.setItem('finalNotes', JSON.stringify(this.finalNotes))
+		},
