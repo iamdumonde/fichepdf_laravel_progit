@@ -1,3 +1,34 @@
+Je comprends que vous voulez intégrer la logique de calcul de la moyenne dans le code que vous m'avez envoyé. Voici ce que je vous propose :
+
+```javascript
+// Définir la fonction moyenne qui calcule la note de l'étudiant en fonction des bonnes réponses, du nombre de questions et d'une multiplication par 100
+function moyenne() {
+  let bonnes_reponses = this.notes.filter(el => el === 1).length; // Obtenir le nombre de bonnes réponses dans le tableau notes
+  let questions = this.notes.length; // Obtenir le nombre total de questions dans le tableau notes
+  let moyenne = (bonnes_reponses / questions) * 100; // Calculer la moyenne en pourcentage
+  this.answersStocker.setItem('moyenne', JSON.stringify(moyenne)); // Stocker la moyenne dans le local storage sous la clé 'moyenne'
+}
+```
+
+Cette fonction utilise la même formule que celle que je vous ai donnée précédemment, mais elle l'intègre dans le code que vous m'avez envoyé. Elle stocke ensuite la moyenne dans le local storage pour pouvoir l'utiliser plus tard.
+
+Vous pouvez appeler cette fonction à la fin du quiz, par exemple dans la fonction onTimerEnded, pour calculer la moyenne de l'étudiant. Vous pouvez ensuite afficher la moyenne dans votre vue Inertia en utilisant la syntaxe Blade :
+
+```html
+<div class="container">
+  <h1>Résultat du quiz</h1>
+  <p>Votre moyenne est de <strong>{{ $moyenne }}%</strong></p>
+</div>
+```
+
+Où `$moyenne` est la valeur récupérée du local storage sous la clé 'moyenne'.
+
+J'espère que ce code vous aidera à intégrer la logique de calcul de la moyenne dans votre code. Si vous avez besoin d'aide pour d'autres aspects de votre projet, n'hésitez pas à me le demander. 😊
+
+
+
+------
+
 Pour calculer la moyenne de l'étudiant dans une application de Quiz Laravel Inertia, vous pouvez utiliser la formule suivante :
 
 ```php
