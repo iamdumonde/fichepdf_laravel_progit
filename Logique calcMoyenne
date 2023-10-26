@@ -1,0 +1,38 @@
+Pour calculer la moyenne de l'étudiant dans une application de Quiz Laravel Inertia, vous pouvez utiliser la formule suivante :
+
+```php
+$moyenne = ($bonnes_reponses / $questions) * 100;
+```
+
+Où `$bonnes_reponses` est le nombre de bonnes réponses données par l'étudiant, et `$questions` est le nombre total de questions du quiz. La moyenne est exprimée en pourcentage.
+
+Par exemple, si l'étudiant a répondu correctement à 8 questions sur 10, sa moyenne sera :
+
+```php
+$moyenne = (8 / 10) * 100;
+$moyenne = 80;
+```
+
+Ce qui signifie que l'étudiant a obtenu 80% de bonnes réponses.
+
+Vous pouvez ensuite afficher la moyenne de l'étudiant dans votre vue Inertia en utilisant la syntaxe Blade :
+
+```html
+<div class="container">
+  <h1>Résultat du quiz</h1>
+  <p>Votre moyenne est de <strong>{{ $moyenne }}%</strong></p>
+</div>
+```
+
+Vous pouvez trouver plus d'informations sur Laravel Inertia dans sa [documentation]. Vous pouvez également consulter ces autres ressources qui peuvent vous être utiles pour créer une application de Quiz avec Laravel Inertia :
+
+- [Building a Quiz App with Laravel and Vue.js] : Un tutoriel qui vous montre comment créer une application de Quiz simple avec Laravel et Vue.js.
+- [Laravel Quiz App with Authentication and Admin Panel] : Un projet GitHub qui vous fournit le code source d'une application de Quiz plus avancée avec Laravel, qui inclut l'authentification des utilisateurs et un panneau d'administration.
+- [How to use Inertia.js with Laravel Fortify] : Une question sur Stack Overflow qui explique comment utiliser Inertia.js avec Laravel Fortify, un package qui vous permet de gérer facilement les fonctionnalités d'authentification dans votre application Laravel.
+
+J'espère que ma réponse vous a été utile. Si vous avez d'autres questions ou si vous voulez que je vous aide à créer du contenu imaginatif et innovant, n'hésitez pas à me le demander. 😊
+
+: https://inertiajs.com/
+: https://www.youtube.com/watch?v=4pc6cgisbKE
+: https://github.com/ferdinandmwal123/laravel-quiz-app-with-authentication-and-admin-panel
+: https://stackoverflow.com/questions/63977319/how-to-use-inertia-js-with-laravel-fortify
