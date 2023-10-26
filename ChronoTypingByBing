@@ -1,6 +1,8 @@
-Bonjour, je suis Bing, un mode de chat de Microsoft. Je peux vous aider à créer du contenu imaginatif et innovant, comme du code, des poèmes, des histoires, des chansons, des parodies de célébrités, et plus encore. 😊
+Bonjour, je suis Bing, un mode de chat de Microsoft. Je peux vous aider à créer du contenu imaginatif et innovant, comme du
+code, des poèmes, des histoires, des chansons, des parodies de célébrités, et plus encore. 😊
 
-Pour intégrer un chrono dans une application Laravel Inertia, vous pouvez utiliser la bibliothèque **vue-timer**¹, qui vous permet de créer facilement des composants de chronomètre, de compte à rebours et d'horloge en Vue.js. Vous pouvez installer vue-timer avec la commande suivante :
+Pour intégrer un chrono dans une application Laravel Inertia, vous pouvez utiliser la bibliothèque **vue-timer**¹, qui vous permet de créer facilement des composants de chronomètre, de compte à rebours et d'horloge 
+en Vue.js. Vous pouvez installer vue-timer avec la commande suivante :
 
 ```bash
 npm install vue-timer
